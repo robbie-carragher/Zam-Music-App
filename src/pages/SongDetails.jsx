@@ -7,7 +7,6 @@ import { setActiveSong, playPause } from '../redux/features/playerSlice';
 import { useGetSongDetailsQuery, useGetSongRelatedQuery } from '../redux/services/shazamCore';
 
 const SongDetails = () => {
-
   const dispatch = useDispatch();
   const { songid, id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -18,7 +17,6 @@ const SongDetails = () => {
   if (isFetchingSongDetails && isFetchinRelatedSongs) return <Loader title="Searching song details" />;
 
   console.log(songData);
-  console.log(data)
 
   if (error) return <Error />;
 
@@ -27,7 +25,6 @@ const SongDetails = () => {
   };
 
   const handlePlayClick = (song, i) => {
-    console.log(song);
     dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
