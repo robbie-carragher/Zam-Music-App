@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,7 +11,6 @@ const Discover = () => {
   const { genreListId } = useSelector((state) => state.player);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP');
-  console.log(data);
 
   if (isFetching) return <Loader title="Loading songs..." />;
 
